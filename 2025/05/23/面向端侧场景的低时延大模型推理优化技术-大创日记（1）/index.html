@@ -1,0 +1,212 @@
+<!DOCTYPE html><html lang="zh" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>面向端侧场景的低时延大模型推理优化技术--大创日记（1） | 秋的個人博客</title><meta name="author" content="秋"><meta name="copyright" content="秋"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="2025&#x2F;4&#x2F;3在跑readme里的实例代码时出现了第一个环境问题 cannot import name ‘oneshot’ from ‘llmcompressor’  我们可以用下面的代码检查库里的函数12import llmcompressorprint(dir(llmcompressor)) 发现确实是没有对应的函数我们可以查阅这段评论里尝试找到解决方法 https:&#x2F;&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向端侧场景的低时延大模型推理优化技术--大创日记（1）">
+<meta property="og:url" content="http://example.com/2025/05/23/%E9%9D%A2%E5%90%91%E7%AB%AF%E4%BE%A7%E5%9C%BA%E6%99%AF%E7%9A%84%E4%BD%8E%E6%97%B6%E5%BB%B6%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF-%E5%A4%A7%E5%88%9B%E6%97%A5%E8%AE%B0%EF%BC%881%EF%BC%89/index.html">
+<meta property="og:site_name" content="秋的個人博客">
+<meta property="og:description" content="2025&#x2F;4&#x2F;3在跑readme里的实例代码时出现了第一个环境问题 cannot import name ‘oneshot’ from ‘llmcompressor’  我们可以用下面的代码检查库里的函数12import llmcompressorprint(dir(llmcompressor)) 发现确实是没有对应的函数我们可以查阅这段评论里尝试找到解决方法 https:&#x2F;&#x2F;">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/img/102368197_p0.jpg">
+<meta property="article:published_time" content="2025-05-23T07:22:53.000Z">
+<meta property="article:modified_time" content="2025-05-23T08:12:33.118Z">
+<meta property="article:author" content="秋">
+<meta property="article:tag" content="no words">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/102368197_p0.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "面向端侧场景的低时延大模型推理优化技术--大创日记（1）",
+  "url": "http://example.com/2025/05/23/%E9%9D%A2%E5%90%91%E7%AB%AF%E4%BE%A7%E5%9C%BA%E6%99%AF%E7%9A%84%E4%BD%8E%E6%97%B6%E5%BB%B6%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF-%E5%A4%A7%E5%88%9B%E6%97%A5%E8%AE%B0%EF%BC%881%EF%BC%89/",
+  "image": "http://example.com/img/102368197_p0.jpg",
+  "datePublished": "2025-05-23T07:22:53.000Z",
+  "dateModified": "2025-05-23T08:12:33.118Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "秋",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/picture2.jpg"><link rel="canonical" href="http://example.com/2025/05/23/%E9%9D%A2%E5%90%91%E7%AB%AF%E4%BE%A7%E5%9C%BA%E6%99%AF%E7%9A%84%E4%BD%8E%E6%97%B6%E5%BB%B6%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF-%E5%A4%A7%E5%88%9B%E6%97%A5%E8%AE%B0%EF%BC%881%EF%BC%89/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '面向端侧场景的低时延大模型推理优化技术--大创日记（1）',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/picture2.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/diary/"><i class="fa-fw fas fa-book"></i><span> 日记</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/102368197_p0.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">秋的個人博客</span></a><a class="nav-page-title" href="/"><span class="site-name">面向端侧场景的低时延大模型推理优化技术--大创日记（1）</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/diary/"><i class="fa-fw fas fa-book"></i><span> 日记</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">面向端侧场景的低时延大模型推理优化技术--大创日记（1）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-05-23T07:22:53.000Z" title="Created 2025-05-23 15:22:53">2025-05-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-05-23T08:12:33.118Z" title="Updated 2025-05-23 16:12:33">2025-05-23</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="2025-4-3"><a href="#2025-4-3" class="headerlink" title="2025&#x2F;4&#x2F;3"></a>2025&#x2F;4&#x2F;3</h1><h3 id="在跑readme里的实例代码时出现了第一个环境问题"><a href="#在跑readme里的实例代码时出现了第一个环境问题" class="headerlink" title="在跑readme里的实例代码时出现了第一个环境问题"></a>在跑readme里的实例代码时出现了第一个环境问题</h3><blockquote>
+<p>cannot import name ‘oneshot’ from ‘llmcompressor’</p>
+</blockquote>
+<h3 id="我们可以用下面的代码检查库里的函数"><a href="#我们可以用下面的代码检查库里的函数" class="headerlink" title="我们可以用下面的代码检查库里的函数"></a>我们可以用下面的代码检查库里的函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> llmcompressor</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">dir</span>(llmcompressor))</span><br></pre></td></tr></table></figure>
+<h3 id="发现确实是没有对应的函数"><a href="#发现确实是没有对应的函数" class="headerlink" title="发现确实是没有对应的函数"></a>发现确实是没有对应的函数</h3><h3 id="我们可以查阅这段评论里尝试找到解决方法"><a href="#我们可以查阅这段评论里尝试找到解决方法" class="headerlink" title="我们可以查阅这段评论里尝试找到解决方法"></a>我们可以查阅这段评论里尝试找到解决方法</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/vllm-project/llm-compressor/issues/1257">https://github.com/vllm-project/llm-compressor/issues/1257</a></p>
+</blockquote>
+<h1 id="2025-4-12"><a href="#2025-4-12" class="headerlink" title="2025&#x2F;4&#x2F;12"></a>2025&#x2F;4&#x2F;12</h1><h3 id="解决师兄指定模型跑时的环境问题"><a href="#解决师兄指定模型跑时的环境问题" class="headerlink" title="解决师兄指定模型跑时的环境问题"></a>解决师兄指定模型跑时的环境问题</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> llmcompressor==<span class="number">0.4</span><span class="number">.1</span></span><br><span class="line"><span class="comment"># 将原示例代码from llmcompressor import oneshot 替换为</span></span><br><span class="line"><span class="comment"># from llmcompressor.transformers.finetune import oneshot</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="2025-4-20"><a href="#2025-4-20" class="headerlink" title="2025&#x2F;4&#x2F;20"></a>2025&#x2F;4&#x2F;20</h1><h3 id="文件传输经验"><a href="#文件传输经验" class="headerlink" title="文件传输经验"></a>文件传输经验</h3><blockquote>
+<p>本机Windows，从本地传输大量文件到云服务器的经验</p>
+<p><em>LordShark</em>一早上快被文件传输整疯了，希望自己的经验对uu们有帮助，不用再浪费时间在查找文件传输办法上了&#x2F;(ㄒoㄒ)&#x2F;</p>
+</blockquote>
+<p>打开PowerShell，输入<code>scp -r -P 1234 &quot;C:\...\...\&quot; username@cloud_ip:/.../</code> <br><br>-r 代表递归复制文件和文件夹 <br><br>-P 1234代表指定端口1234【如果租的机子名称一样，则一定要指定端口号，否则连接失败】<br><br>“C:...&quot;代表本地要传输的文件夹位置 <br><br>username 云服务器用户名（一般为root）<br><br>cloud_ip 云服务器ip（可以在ssh登录处获取）<br><br>后面是云服务器上要存放的位置（如果文件夹不存在，需要手动创建文件夹）<br><br>如果是第一次连接会向你确认，输入”yes”即可<br><br>然后输入密码，就是ssh连接时的密码（密码隐形，屏幕上不可见，输入后直接回车即可）<br><br>就可以愉快地传输数据了[]~ (￣▽￣) ~* <br></p>
+<hr>
+<h1 id="2025-4-21"><a href="#2025-4-21" class="headerlink" title="2025&#x2F;4&#x2F;21"></a>2025&#x2F;4&#x2F;21</h1><h3 id="conda管理Python虚拟环境"><a href="#conda管理Python虚拟环境" class="headerlink" title="conda管理Python虚拟环境"></a>conda管理Python虚拟环境</h3><blockquote>
+<p>在开发不同的项目时，不同的项目可能依赖于不同版本的库。通过创建虚拟环境，可以为每个项目创建一个独立的环境</p>
+<p>在虚拟环境中安装&#x2F;删除包 不会影响全局环境(可以随便乱造bushi)</p>
+</blockquote>
+<p>打开终端，输入<code>conda create -n myenv</code> 可以创建一个名为myenv的虚拟环境(体现为一个文件夹)<br><br>想要指定具体python版本可以在后面跟python&#x3D;3.8<br><br>Linux激活虚拟环境 输入<code>source activate myenv</code><br><br>Windows激活虚拟环境 输入<code>conda activate myenv</code><br><br>看见终端前面会有<code>env</code>出现，代表已经进入虚拟环境 <br><br>然后就可以随便造 : ) <br><br>关闭环境<code>conda deactivate</code><br><br>查看已创建的环境<code>conda env list</code> <br><br>删除已创建的环境<code>conda remove -n myenv --all</code><br><br>查询环境中有哪些包<code>conda list</code><br></p>
+<hr>
+<h1 id="2025-4-22"><a href="#2025-4-22" class="headerlink" title="2025&#x2F;4&#x2F;22"></a>2025&#x2F;4&#x2F;22</h1><h3 id="screen实现后台运行"><a href="#screen实现后台运行" class="headerlink" title="screen实现后台运行"></a>screen实现后台运行</h3><blockquote>
+<p>为了解决跑代码的时候无法关闭页面狂玩的问题(bushi) <em>LordShark</em>查了一下如何在后台运行程序<br>大模型的训练和评测可能花费大量时间 而且as we all know 屏幕黑了或者关闭Jupyter都会触发终端自动挂断</p>
+<p>那么如何在服务器开着、电脑关闭的情况下运行代码呢？（可以乘此机会狂玩手机bushi）</p>
+</blockquote>
+<p>打开终端，输入<code>conda list</code>检查一下有没有下载screen<br><br>没有下载就输入<code>pip install screen</code><br><br>输入<code>screen</code>看到弹出页面&#x2F;终端页面更换，就是已经打开screen，按下空格或回车跳过阅读文档<br><br>已经打开screen工具，程序在里面运行就是在后台运行的<br><br>要回到原终端的话，按下<code>Ctrl+A+D</code><br><br>要回到程序：输入<code>screen -r</code><br><br>结束后台程序：screen页面输入<code>exit</code><br></p>
+<h1 id="2025-4-21-1"><a href="#2025-4-21-1" class="headerlink" title="2025&#x2F;4&#x2F;21"></a>2025&#x2F;4&#x2F;21</h1><h3 id="github上面的实例代码完整跑通的流程"><a href="#github上面的实例代码完整跑通的流程" class="headerlink" title="github上面的实例代码完整跑通的流程"></a>github上面的实例代码完整跑通的流程</h3><p><em>环境和包</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">!pip install llmcompressor</span><br><span class="line">!pip install vllm</span><br><span class="line">!pip install huggingface_hub</span><br></pre></td></tr></table></figure>
+
+<p><em>实际运行代码</em></p>
+<blockquote>
+<p>从镜像网站上下载模型到本地，解决直接跑代码时远程获取模型链接超时的问题。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置镜像站点</span></span><br><span class="line">os.environ[<span class="string">&#x27;HF_ENDPOINT&#x27;</span>] = <span class="string">&#x27;https://hf-mirror.com&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    subprocess.run([</span><br><span class="line">        <span class="string">&quot;huggingface-cli&quot;</span>, </span><br><span class="line">        <span class="string">&quot;download&quot;</span>, </span><br><span class="line">        <span class="string">&quot;TinyLlama/TinyLlama-1.1B-Chat-v1.0&quot;</span>, </span><br><span class="line">        <span class="string">&quot;--local-dir&quot;</span>, </span><br><span class="line">        <span class="string">&quot;./models&quot;</span></span><br><span class="line">    ])</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;下载模型时出错: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>运用本地的模型进行量化</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> llmcompressor.modifiers.smoothquant <span class="keyword">import</span> SmoothQuantModifier</span><br><span class="line"><span class="keyword">from</span> llmcompressor.modifiers.quantization <span class="keyword">import</span> GPTQModifier</span><br><span class="line"><span class="keyword">from</span> llmcompressor <span class="keyword">import</span> oneshot</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 选择量化算法</span></span><br><span class="line">recipe = [</span><br><span class="line">    SmoothQuantModifier(smoothing_strength=<span class="number">0.8</span>),</span><br><span class="line">    GPTQModifier(scheme=<span class="string">&quot;W8A8&quot;</span>, targets=<span class="string">&quot;Linear&quot;</span>, ignore=[<span class="string">&quot;lm_head&quot;</span>]),</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 应用量化</span></span><br><span class="line">oneshot(</span><br><span class="line">    model=<span class="string">&quot;models&quot;</span>,</span><br><span class="line">    dataset=<span class="string">&quot;open_platypus&quot;</span>,</span><br><span class="line">    recipe=recipe,</span><br><span class="line">    output_dir=<span class="string">&quot;TinyLlama-1.1B-Chat-v1.0-INT8&quot;</span>,</span><br><span class="line">    max_seq_length=<span class="number">2048</span>,</span><br><span class="line">    num_calibration_samples=<span class="number">512</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="2025-4-22-1"><a href="#2025-4-22-1" class="headerlink" title="2025&#x2F;4&#x2F;22"></a>2025&#x2F;4&#x2F;22</h1><h2 id="评估库的使用参考知乎："><a href="#评估库的使用参考知乎：" class="headerlink" title="评估库的使用参考知乎："></a>评估库的使用参考知乎：</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/671235487">https://zhuanlan.zhihu.com/p/671235487</a></p>
+</blockquote>
+<h3 id="最主要的问题是评估使用的部分数据集无法被直接下载"><a href="#最主要的问题是评估使用的部分数据集无法被直接下载" class="headerlink" title="最主要的问题是评估使用的部分数据集无法被直接下载"></a>最主要的问题是评估使用的部分数据集无法被直接下载</h3><h2 id="或者在用终端运行评估时，如果出现一整屏的warning，那么很有可能是远程的数据集链接不上了，可以输入一下设置镜像的指令"><a href="#或者在用终端运行评估时，如果出现一整屏的warning，那么很有可能是远程的数据集链接不上了，可以输入一下设置镜像的指令" class="headerlink" title="或者在用终端运行评估时，如果出现一整屏的warning，那么很有可能是远程的数据集链接不上了，可以输入一下设置镜像的指令"></a>或者在用终端运行评估时，如果出现一整屏的warning，那么很有可能是远程的数据集链接不上了，可以输入一下设置镜像的指令</h2><p>可以使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HF_ENDPOINT=https://hf-mirror.com</span><br></pre></td></tr></table></figure>
+<p>设置镜像后，在终端运行python代码写的量化程序</p>
+<h1 id="2025-4-24"><a href="#2025-4-24" class="headerlink" title="2025&#x2F;4&#x2F;24"></a>2025&#x2F;4&#x2F;24</h1><h1 id="2025-4-25"><a href="#2025-4-25" class="headerlink" title="2025&#x2F;4&#x2F;25"></a>2025&#x2F;4&#x2F;25</h1><h2 id="nohup使用方法"><a href="#nohup使用方法" class="headerlink" title="nohup使用方法"></a>nohup使用方法</h2><p>类似screen 但是screen是切换终端页面 nohup在后台运行结束后生成output.log日志<br>nohup运行python代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup python test.py &gt; output.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<p>查看output.log：<br><code>tail -f output.log</code><br><code>less output.log</code></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">秋</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2025/05/23/%E9%9D%A2%E5%90%91%E7%AB%AF%E4%BE%A7%E5%9C%BA%E6%99%AF%E7%9A%84%E4%BD%8E%E6%97%B6%E5%BB%B6%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF-%E5%A4%A7%E5%88%9B%E6%97%A5%E8%AE%B0%EF%BC%881%EF%BC%89/">http://example.com/2025/05/23/%E9%9D%A2%E5%90%91%E7%AB%AF%E4%BE%A7%E5%9C%BA%E6%99%AF%E7%9A%84%E4%BD%8E%E6%97%B6%E5%BB%B6%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF-%E5%A4%A7%E5%88%9B%E6%97%A5%E8%AE%B0%EF%BC%881%EF%BC%89/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/102368197_p0.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/01/22/%E5%85%A5%E9%97%A8%E7%BA%A7HEXO-BUTTERFLY-GITHUB-PAGE%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BB%8F%E9%AA%8C/" title="入门级HEXO+BUTTERFLY+GITHUB PAGE一键部署个人博客经验"><img class="cover" src="/img/8.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">Previous</div><div class="info-item-2">入门级HEXO+BUTTERFLY+GITHUB PAGE一键部署个人博客经验</div></div><div class="info-2"><div class="info-item-1">一、Hexo简介Hexo是一个开源的静态博客框架，它能够将Markdown或HTML文件渲染成静态网页。它具有以下特点：  速度快：生成静态文件，加载迅速。 易扩展：支持丰富的插件和主题。 部署方便：可以轻松部署到GitHub Pages、Vercel等平台。  二、搭建前的准备工作在开始搭建之前，需要确保你的电脑上已经安装了以下工具：  Node.js：Hexo基于Node.js运行，因此需要先安装Node.js。  Git：用于版本控制和部署博客。   如果没有安装的话可以查看hexo的官方文档按照步骤安装。 我这里安装Node.js时是通过了nvs来安装，如果通过nvs来安装，需要手动添加一下环境变量。 安装完成后，可以通过以下命令检查是否安装成功： 123node -vnpm -vgit --version  三、安装HEXO在准备好一切后我们开始开始hexo的安装了 1npm install -g...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/picture2.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">秋</div><div class="author-info-description">一个专注于记录的个人博客。</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/QvQ-Qiu"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/QvQ-Qiu/" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">今天秋又沒敲代碼</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2025-4-3"><span class="toc-number">1.</span> <span class="toc-text">2025&#x2F;4&#x2F;3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E8%B7%91readme%E9%87%8C%E7%9A%84%E5%AE%9E%E4%BE%8B%E4%BB%A3%E7%A0%81%E6%97%B6%E5%87%BA%E7%8E%B0%E4%BA%86%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98"><span class="toc-number">1.0.1.</span> <span class="toc-text">在跑readme里的实例代码时出现了第一个环境问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E7%94%A8%E4%B8%8B%E9%9D%A2%E7%9A%84%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5%E5%BA%93%E9%87%8C%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">1.0.2.</span> <span class="toc-text">我们可以用下面的代码检查库里的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%91%E7%8E%B0%E7%A1%AE%E5%AE%9E%E6%98%AF%E6%B2%A1%E6%9C%89%E5%AF%B9%E5%BA%94%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">1.0.3.</span> <span class="toc-text">发现确实是没有对应的函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E6%9F%A5%E9%98%85%E8%BF%99%E6%AE%B5%E8%AF%84%E8%AE%BA%E9%87%8C%E5%B0%9D%E8%AF%95%E6%89%BE%E5%88%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-number">1.0.4.</span> <span class="toc-text">我们可以查阅这段评论里尝试找到解决方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2025-4-12"><span class="toc-number">2.</span> <span class="toc-text">2025&#x2F;4&#x2F;12</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%B8%88%E5%85%84%E6%8C%87%E5%AE%9A%E6%A8%A1%E5%9E%8B%E8%B7%91%E6%97%B6%E7%9A%84%E7%8E%AF%E5%A2%83%E9%97%AE%E9%A2%98"><span class="toc-number">2.0.1.</span> <span class="toc-text">解决师兄指定模型跑时的环境问题</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2025-4-20"><span class="toc-number">3.</span> <span class="toc-text">2025&#x2F;4&#x2F;20</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93%E7%BB%8F%E9%AA%8C"><span class="toc-number">3.0.1.</span> <span class="toc-text">文件传输经验</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2025-4-21"><span class="toc-number">4.</span> <span class="toc-text">2025&#x2F;4&#x2F;21</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#conda%E7%AE%A1%E7%90%86Python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="toc-number">4.0.1.</span> <span class="toc-text">conda管理Python虚拟环境</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2025-4-22"><span class="toc-number">5.</span> <span class="toc-text">2025&#x2F;4&#x2F;22</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#screen%E5%AE%9E%E7%8E%B0%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C"><span class="toc-number">5.0.1.</span> <span class="toc-text">screen实现后台运行</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2025-4-21-1"><span class="toc-number">6.</span> <span class="toc-text">2025&#x2F;4&#x2F;21</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#github%E4%B8%8A%E9%9D%A2%E7%9A%84%E5%AE%9E%E4%BE%8B%E4%BB%A3%E7%A0%81%E5%AE%8C%E6%95%B4%E8%B7%91%E9%80%9A%E7%9A%84%E6%B5%81%E7%A8%8B"><span class="toc-number">6.0.1.</span> <span class="toc-text">github上面的实例代码完整跑通的流程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2025-4-22-1"><span class="toc-number">7.</span> <span class="toc-text">2025&#x2F;4&#x2F;22</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E4%BC%B0%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%82%E8%80%83%E7%9F%A5%E4%B9%8E%EF%BC%9A"><span class="toc-number">7.1.</span> <span class="toc-text">评估库的使用参考知乎：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E4%B8%BB%E8%A6%81%E7%9A%84%E9%97%AE%E9%A2%98%E6%98%AF%E8%AF%84%E4%BC%B0%E4%BD%BF%E7%94%A8%E7%9A%84%E9%83%A8%E5%88%86%E6%95%B0%E6%8D%AE%E9%9B%86%E6%97%A0%E6%B3%95%E8%A2%AB%E7%9B%B4%E6%8E%A5%E4%B8%8B%E8%BD%BD"><span class="toc-number">7.1.1.</span> <span class="toc-text">最主要的问题是评估使用的部分数据集无法被直接下载</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%96%E8%80%85%E5%9C%A8%E7%94%A8%E7%BB%88%E7%AB%AF%E8%BF%90%E8%A1%8C%E8%AF%84%E4%BC%B0%E6%97%B6%EF%BC%8C%E5%A6%82%E6%9E%9C%E5%87%BA%E7%8E%B0%E4%B8%80%E6%95%B4%E5%B1%8F%E7%9A%84warning%EF%BC%8C%E9%82%A3%E4%B9%88%E5%BE%88%E6%9C%89%E5%8F%AF%E8%83%BD%E6%98%AF%E8%BF%9C%E7%A8%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86%E9%93%BE%E6%8E%A5%E4%B8%8D%E4%B8%8A%E4%BA%86%EF%BC%8C%E5%8F%AF%E4%BB%A5%E8%BE%93%E5%85%A5%E4%B8%80%E4%B8%8B%E8%AE%BE%E7%BD%AE%E9%95%9C%E5%83%8F%E7%9A%84%E6%8C%87%E4%BB%A4"><span class="toc-number">7.2.</span> <span class="toc-text">或者在用终端运行评估时，如果出现一整屏的warning，那么很有可能是远程的数据集链接不上了，可以输入一下设置镜像的指令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2025-4-24"><span class="toc-number">8.</span> <span class="toc-text">2025&#x2F;4&#x2F;24</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2025-4-25"><span class="toc-number">9.</span> <span class="toc-text">2025&#x2F;4&#x2F;25</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#nohup%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">9.1.</span> <span class="toc-text">nohup使用方法</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2025/05/23/%E9%9D%A2%E5%90%91%E7%AB%AF%E4%BE%A7%E5%9C%BA%E6%99%AF%E7%9A%84%E4%BD%8E%E6%97%B6%E5%BB%B6%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF-%E5%A4%A7%E5%88%9B%E6%97%A5%E8%AE%B0%EF%BC%881%EF%BC%89/" title="面向端侧场景的低时延大模型推理优化技术--大创日记（1）"><img src="/img/102368197_p0.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="面向端侧场景的低时延大模型推理优化技术--大创日记（1）"/></a><div class="content"><a class="title" href="/2025/05/23/%E9%9D%A2%E5%90%91%E7%AB%AF%E4%BE%A7%E5%9C%BA%E6%99%AF%E7%9A%84%E4%BD%8E%E6%97%B6%E5%BB%B6%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8%E7%90%86%E4%BC%98%E5%8C%96%E6%8A%80%E6%9C%AF-%E5%A4%A7%E5%88%9B%E6%97%A5%E8%AE%B0%EF%BC%881%EF%BC%89/" title="面向端侧场景的低时延大模型推理优化技术--大创日记（1）">面向端侧场景的低时延大模型推理优化技术--大创日记（1）</a><time datetime="2025-05-23T07:22:53.000Z" title="Created 2025-05-23 15:22:53">2025-05-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/22/%E5%85%A5%E9%97%A8%E7%BA%A7HEXO-BUTTERFLY-GITHUB-PAGE%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BB%8F%E9%AA%8C/" title="入门级HEXO+BUTTERFLY+GITHUB PAGE一键部署个人博客经验"><img src="/img/8.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="入门级HEXO+BUTTERFLY+GITHUB PAGE一键部署个人博客经验"/></a><div class="content"><a class="title" href="/2025/01/22/%E5%85%A5%E9%97%A8%E7%BA%A7HEXO-BUTTERFLY-GITHUB-PAGE%E4%B8%80%E9%94%AE%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BB%8F%E9%AA%8C/" title="入门级HEXO+BUTTERFLY+GITHUB PAGE一键部署个人博客经验">入门级HEXO+BUTTERFLY+GITHUB PAGE一键部署个人博客经验</a><time datetime="2025-01-22T09:27:26.000Z" title="Created 2025-01-22 17:27:26">2025-01-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/01/21/hello-world/" title="Hello World"><img src="/img/0.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2025/01/21/hello-world/" title="Hello World">Hello World</a><time datetime="2025-01-21T15:27:26.000Z" title="Created 2025-01-21 23:27:26">2025-01-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2025 By 秋</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
