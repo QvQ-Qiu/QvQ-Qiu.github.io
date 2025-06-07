@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)http://localhost:5173/new/shop -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="module" src="./SSE_files/client"></script>
+
+    
+    <link rel="icon" href="http://localhost:5173/new/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="SSE MARKET">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" href="http://localhost:5173/new/apple-touch-icon.png">
+    <title>SSE</title>
+  <style type="text/css" data-vite-dev-id="C:/Users/ASUS/Desktop/SSE_MARKET/SSE_MARKET/newSSE前端/src/assets/MessageBox.css">#msgbox-root {
+  width: 20%;
+  height: 30%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  background-color: rgba(174, 174, 174, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  z-index: 1005;
+  animation:
+    fade-out 6s forwards,
+    move-down 6s forwards !important;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  #msgbox-root {
+    width: 100%;
+    height: 20%;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation:
+      fade-out 6s forwards,
+      move-up 6s forwards;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes move-up {
+  from {
+    top: 80%;
+  }
+  to {
+    top: 50%;
+  }
+}
+
+@keyframes move-down {
+  from {
+    top: 0;
+  }
+  to {
+    top: 30%;
+  }
+}
+</style><style type="text/css" data-vite-dev-id="C:/Users/ASUS/Desktop/SSE_MARKET/SSE_MARKET/newSSE前端/src/views/HomeView.vue?vue&amp;type=style&amp;index=0&amp;scoped=b4e148ca&amp;lang.scss">@charset "UTF-8";
+#root[data-v-b4e148ca] {
+  background-color: var(--color-bg);
+}
+header[data-v-b4e148ca] {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1999;
+}
+.icon[data-v-b4e148ca] {
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 0px 3px;
+  display: inline-block;
+}
+body.dark-mode .icon[data-v-b4e148ca] {
+  filter: invert(1);
+}
+body.dark-mode .content > .icon[data-v-b4e148ca] {
+  filter: brightness(1.5) saturate(1.3) contrast(1.2) drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
+}
+
+/* 课程专区（暂时） */
+.lesson[data-v-b4e148ca] {
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 0px 3px;
+  display: inline-block;
+}
+body.dark-mode .lesson[data-v-b4e148ca] {
+  filter: brightness(1.1) saturate(1.2) drop-shadow(0 0 6px rgba(150, 200, 255, 0.4)) drop-shadow(0 0 10px rgba(150, 200, 255, 0.2));
+}
+
+/* */
+.site-top[data-v-b4e148ca] {
+  display: flex;
+  background: #0f172a;
+}
+.site-top .title[data-v-b4e148ca] {
+  flex: 1;
+  color: #eee;
+  text-align: center;
+  margin: 0.25em;
+  margin-left: 0.5em;
+  letter-spacing: 0.25em;
+  font-size: 18px;
+  font-family: "Ubuntu Mono", Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+.site-top .top-left[data-v-b4e148ca],
+.site-top .top-right[data-v-b4e148ca] {
+  width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 0 0.8rem;
+}
+.site-top .mode-select[data-v-b4e148ca] {
+  color: #eee;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.site-header[data-v-b4e148ca] {
+  display: flex;
+  background: rgba(255, 255, 255, 0.6274509804);
+  backdrop-filter: blur(2px);
+  height: var(--b4e148ca-headerHeight);
+  color: #444;
+  align-items: center;
+  padding: 0 1em;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+  margin-bottom: 0px;
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+.site-header .links a[data-v-b4e148ca] {
+  position: relative;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+  border-radius: 4px;
+  margin-right: 0.2em;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.site-header .links a[data-v-b4e148ca]:hover,
+.site-header .links .router-link-active[data-v-b4e148ca] {
+  background: #444;
+  color: #fff !important;
+}
+.site-header .links a[data-v-b4e148ca]:link,
+.site-header .links a[data-v-b4e148ca]:visited {
+  color: #444;
+}
+.site-header .links .notice-num[data-v-b4e148ca] {
+  position: absolute;
+  top: -4px;
+  right: -3px;
+  border-radius: 9px;
+  background: #ff5050;
+  color: #eee;
+  height: 1rem;
+  text-align: center;
+  line-height: 1;
+  font-size: 13px;
+  padding: 2px 4px;
+}
+.site-header .search[data-v-b4e148ca] {
+  flex: 1;
+  margin: 0 1em;
+  text-align: center;
+}
+.site-header .search input[data-v-b4e148ca] {
+  width: 100%;
+  max-width: 48em;
+  height: 2em;
+  padding: 0 2em 0 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  line-height: 0.8;
+  vertical-align: middle;
+}
+.site-header .search button[data-v-b4e148ca] {
+  background: unset;
+  height: 1em;
+  width: 1em;
+  padding: 0;
+  margin: 0 0 0 -1.5em;
+  vertical-align: middle;
+}
+.dark-mode .site-header[data-v-b4e148ca] {
+  background: rgba(0, 0, 0, 0.6274509804);
+  color: #ddd;
+}
+.dark-mode .site-header .links a[data-v-b4e148ca]:hover,
+.dark-mode .site-header .links .router-link-active[data-v-b4e148ca] {
+  background: rgba(102, 102, 102, 0.5019607843);
+}
+.dark-mode .site-header .links a[data-v-b4e148ca]:link,
+.dark-mode .site-header .links a[data-v-b4e148ca]:visited {
+  color: #ddd;
+}
+.dark-mode .site-header .links .notice-num[data-v-b4e148ca] {
+  background: #ff5050;
+}
+.dark-mode .site-header .search input[data-v-b4e148ca] {
+  background: rgba(136, 136, 136, 0.5019607843);
+  border: 1px solid #ccc;
+  color: #ccc;
+}
+.dark-mode .site-header .search input[data-v-b4e148ca]::placeholder {
+  color: #aaa;
+}
+.content[data-v-b4e148ca] {
+  width: 100%;
+  margin-bottom: 13vh !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+p[data-v-b4e148ca] {
+  text-indent: 2rem;
+}
+.search[data-v-b4e148ca] {
+  height: 30px;
+}
+.search button[data-v-b4e148ca] {
+  overflow: hidden;
+}
+main[data-v-b4e148ca] {
+  width: 100%;
+  padding: 0;
+  margin-top: 10px;
+  background-color: var(--color-bg);
+}
+.partitions[data-v-b4e148ca] {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+.partition[data-v-b4e148ca] {
+  flex: 1 1 16%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(240, 240, 240, 0.8));
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  padding: 10px;
+  cursor: pointer;
+}
+body.dark-mode .partition[data-v-b4e148ca] {
+  background: linear-gradient(to bottom, rgba(40, 40, 40, 0.9), rgba(30, 30, 30, 0.9));
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.partition[data-v-b4e148ca]:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  background: linear-gradient(to bottom, rgba(255, 255, 200, 0.8), rgba(240, 240, 160, 0.8));
+}
+body.dark-mode .partition[data-v-b4e148ca]:hover {
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+body.dark-mode .bright-icon[data-v-b4e148ca] {
+  filter: invert(1) brightness(1.4) saturate(1.2) drop-shadow(0 0 6px rgba(150, 200, 255, 0.4)) drop-shadow(0 0 10px rgba(150, 200, 255, 0.2));
+}
+.partition[data-v-b4e148ca]:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.partition[data-v-b4e148ca]:last-child {
+  margin-right: 0;
+}
+.bright-icon[data-v-b4e148ca] {
+  display: block;
+  width: 100%;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  margin: 5px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.partition-info[data-v-b4e148ca] {
+  user-select: none;
+  width: 100%;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 800;
+}
+@keyframes fadeIn-b4e148ca {
+from {
+    opacity: 0;
+}
+to {
+    opacity: 1;
+}
+}
+/* 大屏幕样式 >768px */
+@media screen and (min-width: 768px) {
+#root[data-v-b4e148ca] {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main[data-v-b4e148ca] {
+    display: flex;
+    flex-direction: row;
+}
+.content[data-v-b4e148ca] {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 100%;
+    height: auto;
+}
+h2[data-v-b4e148ca] {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+footer[data-v-b4e148ca] {
+    display: none;
+}
+}
+/* 小屏幕样式 <768px */
+@media screen and (max-width: 768px) {
+main[data-v-b4e148ca] {
+    padding: 0;
+}
+.content[data-v-b4e148ca] {
+    width: 100%;
+    margin: 0;
+    border: none;
+}
+.search[data-v-b4e148ca] {
+    width: 90%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 15%;
+}
+.search button[data-v-b4e148ca] {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 150%;
+    width: 25%;
+}
+.post-button[data-v-b4e148ca] {
+    color: #444;
+    font-weight: bold;
+}
+}</style><style type="text/css" data-vite-dev-id="C:/Users/ASUS/Desktop/SSE_MARKET/SSE_MARKET/newSSE前端/src/assets/main.css">/* 从网络获取会阻塞2-3s */
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.font.im/s/ubuntumono/v17/KFOjCneDtsqEr0keqCMhbCc3CsTKlA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.font.im/s/ubuntumono/v17/KFOjCneDtsqEr0keqCMhbCc-CsTKlA.woff2) format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.font.im/s/ubuntumono/v17/KFOjCneDtsqEr0keqCMhbCc2CsTKlA.woff2) format('woff2');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.font.im/s/ubuntumono/v17/KFOjCneDtsqEr0keqCMhbCc5CsTKlA.woff2) format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.font.im/s/ubuntumono/v17/KFOjCneDtsqEr0keqCMhbCc0CsTKlA.woff2) format('woff2');
+  unicode-range:
+    U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+    U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.font.im/s/ubuntumono/v17/KFOjCneDtsqEr0keqCMhbCc6CsQ.woff2) format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC,
+    U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow: auto;
+  background-color: var(--color-bg);
+}
+body {
+  overflow-y: scroll;
+}
+@media screen and (min-width: 768px) {
+  /* 调整body的滚动条 */
+  body::-webkit-scrollbar {
+    width: 4px;
+    background-color: var(--color-scroll);
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--color-scroll-thumb);
+  }
+}
+.fileInput,
+button {
+  cursor: pointer;
+  pointer-events: auto;
+  border: none;
+  outline: none;
+  background-color: var(--color-button-bg);
+  color: var(--color-button);
+  padding: 15px 25px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin: 10px;
+  margin-bottom: 20px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+.fileInput:hover,
+button:hover {
+  background-color: var(--color-button);
+  color: var(--color-button-bg);
+}
+img {
+  width: 25%;
+  height: 25%;
+  object-fit: cover;
+}
+@media screen and (max-width: 768px) {
+  .fileInput,
+  button {
+    padding: 5%;
+    margin-left: 1%;
+    margin-right: 1%;
+  }
+
+  .editorButton {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.root {
+  color: var(--color-text);
+}
+</style><style type="text/css" data-vite-dev-id="C:/Users/ASUS/Desktop/SSE_MARKET/SSE_MARKET/newSSE前端/src/assets/mode.css">/* 存放明亮模式和黑暗模式的颜色 */
+/* 子元素使用css变量 */
+
+body.light-mode {
+  --color-bg: #fafafa;
+  background-color: var(--color-bg);
+
+  --color-scroll: rgba(0, 0, 0, 0.1);
+  --color-scroll-thumb: rgba(0, 0, 0, 0.5);
+
+  --color-button-bg: #a8b4b08f;
+  --color-button: #333;
+
+  --color-text: #181818;
+  --color-hr: #3333339d;
+
+  --color-border: rgba(0, 0, 0, 0.1);
+
+  --color-nav-bg: #f0f0f0;
+  --color-nav-hover: rgba(241, 236, 226, 0.901);
+
+  --color-ball-bg: #fffdfd;
+  --color-ball-text: #181818;
+  --color-ball-box-shadow: rgba(0, 0, 0, 0.35);
+
+  --color-selected-shadow-first: rgba(70, 70, 94, 0.25);
+  --color-selected-shadow-second: rgba(0, 0, 0, 0.3);
+
+  --color-title-selected: #00a4af;
+  --color-title-bg: rgba(136, 243, 255, 0.683);
+
+  --color-to-post: white;
+  --color-to-post-bg: #a1a1a1e1;
+  --color-to-post-border: #333;
+
+  --color-a-in-post: #00d9ff;
+  --color-a-hover-in-post: #ffd900;
+  --color-a-hover-bg-in-post: #9cff817e;
+
+  --color-user-text: #333;
+  --color-user-avatar-bg: #6c757d;
+  --color-user-avatar: #fff;
+
+  --color-post-card-box-shadow: rgba(0, 0, 0, 0.24);
+  --color-post-card-hover-box-shadow: rgba(0, 0, 0, 0.35);
+
+  --color-level-undefined-box-shadow: #1e1e1eae;
+  --color-level-6-bg: #4545454e;
+
+  --chat-bg-main: #eee;
+  --chat-bg-highlight: #ddd;
+  --chat-text: #888;
+  --chat-text-tips: #383838;
+}
+
+body.dark-mode {
+  --color-bg: rgb(35, 35, 35);
+  background-color: var(--color-bg);
+
+  --color-scroll: rgba(255, 255, 255, 0.1);
+  --color-scroll-thumb: rgba(255, 255, 255, 0.5);
+
+  --color-button-bg: #333;
+  --color-button: #f1f1f18f;
+
+  --color-text: rgb(218, 211, 197);
+  --color-hr: #f1f1f18f;
+
+  --color-border: rgba(214, 214, 214, 0.8);
+
+  --color-nav-bg: #383737;
+  --color-nav-hover: rgba(68, 68, 68, 0.901);
+
+  --color-ball-bg: #3d3d3d;
+  --color-ball-text: #bababa;
+  --color-ball-box-shadow: rgba(255, 255, 255, 0.35);
+
+  --color-selected-shadow-first: rgba(255, 255, 255, 0.1);
+  --color-selected-shadow-second: rgba(255, 255, 255, 0.2);
+
+  --color-title-selected: #b8860b;
+  --color-title-bg: #ffb700cd;
+
+  --color-to-post: white;
+  --color-to-post-bg: #a1a1a1e1;
+  --color-to-post-border: #333;
+
+  --color-level: #c79900;
+
+  --color-a-in-post: #00d9ff;
+  --color-a-hover-in-post: #ffd900;
+  --color-a-hover-bg-in-post: #9cff817e;
+
+  --color-user-text: #cbb745;
+
+  --color-post-card-box-shadow: rgba(255, 255, 255, 0.24);
+  --color-post-card-hover-box-shadow: rgba(255, 255, 255, 0.35);
+
+  --color-level-undefined-box-shadow: #9d9d9dde;
+  --color-level-6-bg: #a9a9a94e;
+
+  --chat-bg-main: #444;
+  --chat-bg-highlight: #282828;
+  --chat-text: #ccc;
+  --chat-text-tips: #383838;
+}
+</style><style type="text/css" data-vite-dev-id="C:/Users/ASUS/Desktop/SSE_MARKET/SSE_MARKET/newSSE前端/src/views/LoginView.vue?vue&amp;type=style&amp;index=0&amp;scoped=45f5edd7&amp;lang.css">
+.title[data-v-45f5edd7] {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+.pageWithLoginButton[data-v-45f5edd7] {
+  width: 50%;
+  margin: auto;
+  margin-top: 3%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.472);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+}
+.loginAndRegPage[data-v-45f5edd7] {
+  width: 60%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.loginAndRegPage .inputData[data-v-45f5edd7] {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 15px;
+}
+.loginAndRegPage .inputData input[data-v-45f5edd7] {
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 17px;
+  border-bottom: 2px solid #c0c0c0;
+  background-color: rgba(255, 255, 255, 0.472);
+}
+.inputData input:valid ~ label[data-v-45f5edd7],
+.inputData input:focus ~ label[data-v-45f5edd7] {
+  transform: translateX(-48px);
+  font-size: 16px;
+  color: #eb6b26;
+  font-weight: bold;
+  border: none;
+}
+.inputData label[data-v-45f5edd7] {
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  color: #808080;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.underline[data-v-45f5edd7] {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, #eb6b26, #eb6b26);
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+.inputData input:focus ~ .underline[data-v-45f5edd7],
+.inputData input:valid ~ .underline[data-v-45f5edd7] {
+  transform: scaleX(1);
+}
+.buttonDiv[data-v-45f5edd7] {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+.buttonDiv div[data-v-45f5edd7] {
+  margin-left: 12%;
+  margin-right: 12%;
+}
+.checkbox[data-v-45f5edd7] {
+  margin-top: 10px;
+}
+.LoginAndRegButton[data-v-45f5edd7] {
+  width: 100%;
+  height: 40px;
+  background-color: #eb6b26;
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+.LoginAndRegButton[data-v-45f5edd7]:hover {
+  background-color: #ff7e3b;
+}
+.regButtonDiv[data-v-45f5edd7] {
+  margin-top: 20px;
+  color: #eb6b26;
+  cursor: pointer;
+}
+.regButtonDiv[data-v-45f5edd7]:hover {
+  color: #ff7e3b;
+}
+.regButtons[data-v-45f5edd7] {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 768px) {
+.pageWithLoginButton[data-v-45f5edd7] {
+    width: 100%;
+    margin: 0;
+    margin-top: 13%;
+}
+.pageWithLoginButton[data-v-45f5edd7] {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 50px;
+}
+.loginAndRegPage[data-v-45f5edd7] {
+    width: 100%;
+    align-items: center;
+}
+.loginAndRegPage .inputData[data-v-45f5edd7] {
+    width: 80%;
+}
+.loginAndRegPage .inputData input[data-v-45f5edd7] {
+    width: 100%;
+    height: 100%;
+    border: none;
+    font-size: 17px;
+    border-bottom: 2px solid #c0c0c0;
+    background-color: rgba(255, 255, 255, 0.472);
+}
+.regButtonDiv[data-v-45f5edd7] {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.inputData input:valid ~ label[data-v-45f5edd7],
+  .inputData input:focus ~ label[data-v-45f5edd7] {
+    transform: translateX(-52px);
+}
+}
+</style><style type="text/css" data-vite-dev-id="C:/Users/ASUS/Desktop/SSE_MARKET/SSE_MARKET/newSSE前端/src/components/card/ProductCard.vue?vue&amp;type=style&amp;index=0&amp;scoped=b7e60665&amp;lang.css">
+  /* 商品卡片样式 */
+.product-card[data-v-b7e60665] {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+.product-card[data-v-b7e60665]:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.product-image[data-v-b7e60665] {
+    height: 180px;
+    overflow: hidden;
+}
+.product-image img[data-v-b7e60665] {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+.product-card:hover .product-image img[data-v-b7e60665] {
+    transform: scale(1.05);
+}
+.product-info[data-v-b7e60665] {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.product-name[data-v-b7e60665] {
+    font-size: 16px;
+    margin: 0 0 8px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #333;
+}
+.product-seller[data-v-b7e60665] {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 10px;
+}
+.product-price[data-v-b7e60665] {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.current-price[data-v-b7e60665] {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e53935;
+    margin-right: 8px;
+}
+.original-price[data-v-b7e60665] {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+}
+.product-description[data-v-b7e60665] {
+    font-size: 13px;
+    color: #666;
+    margin: 8px 0;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.add-to-cart[data-v-b7e60665] {
+    padding: 8px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: auto;
+}
+.add-to-cart[data-v-b7e60665]:hover {
+    background-color: #45a049;
+}
+  </style><style type="text/css" data-vite-dev-id="C:/Users/ASUS/Desktop/SSE_MARKET/SSE_MARKET/newSSE前端/src/views/ShopView.vue?vue&amp;type=style&amp;index=0&amp;scoped=b536383a&amp;lang.css">
+.shop-container[data-v-b536383a] {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+  
+  /* 骨架屏样式 */
+.skeleton-screen[data-v-b536383a] {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.skeleton-top-section[data-v-b536383a] {
+    display: flex;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.skeleton-carousel[data-v-b536383a] {
+    flex: 1;
+    height: 300px;
+    background-color: #eee;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+.skeleton-filter[data-v-b536383a] {
+    width: 250px;
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 6px;
+}
+.skeleton-bottom-section[data-v-b536383a] {
+    flex: 1;
+    padding: 20px;
+}
+.skeleton-title[data-v-b536383a] {
+    height: 30px;
+    background-color: #eee;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+.skeleton-product-list[data-v-b536383a] {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+}
+.skeleton-product-card[data-v-b536383a] {
+    height: 300px;
+    background-color: #eee;
+    border-radius: 8px;
+}
+  
+  /* 响应式布局 */
+@media (min-width: 768px) {
+.top-section[data-v-b536383a] {
+      display: flex;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 8px 8px 0 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.carousel-container[data-v-b536383a] {
+      flex: 1;
+      margin-right: 20px;
+}
+.filter-container[data-v-b536383a] {
+      width: 250px;
+      flex-shrink: 0;
+}
+.bottom-section[data-v-b536383a] {
+      flex: 1;
+      padding: 20px;
+}
+}
+@media (max-width: 767px) {
+.top-section[data-v-b536383a] {
+      flex-direction: column;
+}
+.carousel-container[data-v-b536383a] {
+      width: 100%;
+      margin-bottom: 20px;
+}
+.filter-container[data-v-b536383a] {
+      width: 100%;
+      margin-bottom: 20px;
+}
+.bottom-section[data-v-b536383a] {
+      width: 100%;
+      padding: 20px;
+}
+}
+  
+  /* 轮播图样式 */
+.carousel[data-v-b536383a] {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.carousel-inner[data-v-b536383a] {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+}
+.carousel-item[data-v-b536383a] {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+.carousel-item img[data-v-b536383a] {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.carousel-title[data-v-b536383a] {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 18px;
+}
+  
+  /* 轮播控制按钮 */
+.carousel-control[data-v-b536383a] {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carousel-control.prev[data-v-b536383a] {
+    left: 15px;
+}
+.carousel-control.next[data-v-b536383a] {
+    right: 15px;
+}
+  
+  /* 轮播指示器 */
+.carousel-indicators[data-v-b536383a] {
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+.indicator[data-v-b536383a] {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+.indicator.active[data-v-b536383a] {
+    background-color: white;
+}
+  
+  /* 筛选框样式 */
+.filter-section[data-v-b536383a] {
+    background-color: white;
+    border-radius: 6px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.filter-section h3[data-v-b536383a] {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 15px;
+    color: #333;
+}
+.price-filter[data-v-b536383a] {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 100%;
+}
+.price-label[data-v-b536383a] {
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+.price-select-group[data-v-b536383a] {
+    flex: 1;
+}
+.price-select-group select[data-v-b536383a] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.filter-buttons[data-v-b536383a] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+button[data-v-b536383a] {
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+button[data-v-b536383a]:hover {
+    background-color: #45a049;
+}
+  
+  /* 商品展示区域 */
+.bottom-section[data-v-b536383a] {
+    margin-top: 0;
+}
+.product-list-title[data-v-b536383a] {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #333;
+}
+  
+  /* 商品列表容器 */
+.product-list-wrapper[data-v-b536383a] {
+    min-height: 300px; /* 设置一个最小高度，防止内容为空时区域骤缩 */
+}
+.product-list[data-v-b536383a] {
+    display: grid;
+    gap: 20px;
+}
+  
+  /* 大屏幕布局 */
+@media (min-width: 1200px) {
+.product-list[data-v-b536383a] {
+      grid-template-columns: repeat(6, 1fr);
+}
+}
+  
+  /* 中等屏幕布局 */
+@media (min-width: 992px) and (max-width: 1199px) {
+.product-list[data-v-b536383a] {
+      grid-template-columns: repeat(4, 1fr);
+}
+}
+  
+  /* 小屏幕布局 */
+@media (min-width: 768px) and (max-width: 991px) {
+.product-list[data-v-b536383a] {
+      grid-template-columns: repeat(3, 1fr);
+}
+}
+  
+  /* 超小屏幕布局 */
+@media (min-width: 576px) and (max-width: 767px) {
+.product-list[data-v-b536383a] {
+      grid-template-columns: repeat(2, 1fr);
+}
+}
+  
+  /* 超小屏幕布局 */
+@media (max-width: 575px) {
+.product-list[data-v-b536383a] {
+      grid-template-columns: repeat(2, 1fr);
+}
+}
+  
+  /* 空商品列表提示 */
+.empty-product-list[data-v-b536383a] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    color: #666;
+    text-align: center;
+}
+.empty-product-list p[data-v-b536383a] {
+    font-size: 18px;
+}
+  
+  /* 商品卡片样式 */
+.product-card[data-v-b536383a] {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+.product-card[data-v-b536383a]:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.product-image[data-v-b536383a] {
+    height: 180px;
+    overflow: hidden;
+}
+.product-image img[data-v-b536383a] {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+.product-card:hover .product-image img[data-v-b536383a] {
+    transform: scale(1.05);
+}
+.product-info[data-v-b536383a] {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.product-name[data-v-b536383a] {
+    font-size: 16px;
+    margin: 0 0 8px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #333;
+}
+.product-seller[data-v-b536383a] {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 10px;
+}
+.product-price[data-v-b536383a] {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.current-price[data-v-b536383a] {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e53935;
+    margin-right: 8px;
+}
+.original-price[data-v-b536383a] {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+}
+.product-description[data-v-b536383a] {
+    font-size: 13px;
+    color: #666;
+    margin: 8px 0;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.add-to-cart[data-v-b536383a] {
+    padding: 8px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: auto;
+}
+.add-to-cart[data-v-b536383a]:hover {
+    background-color: #45a049;
+}
+  </style><style type="text/css" data-vite-dev-id="C:/Users/ASUS/Desktop/SSE_MARKET/SSE_MARKET/newSSE前端/src/components/HeatList.vue?vue&amp;type=style&amp;index=0&amp;scoped=3a041031&amp;lang.css">
+#heat[data-v-3a041031] {
+  color: #ffffff;
+  text-shadow:
+    0 0 10px #ff3232de,
+    0 0 20px #ff3232de,
+    0 0 50px #ff3232de,
+    0 0 100px #ff3232de,
+    0 0 200px #ff3232de;
+}
+#heat[data-v-3a041031]::before {
+  content: '🔥';
+}
+#heat[data-v-3a041031]::after {
+  content: '🔥';
+}
+.nav-bar[data-v-3a041031] {
+  display: flex;
+  flex-direction: column;
+}
+.heat[data-v-3a041031] {
+  text-align: center !important;
+  width: 100%;
+}
+.nav[data-v-3a041031] {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+  border: 1px solid var(--color-border);
+  text-align: center;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: all 0.3s;
+}
+.nav[data-v-3a041031]:hover {
+  background-color: var(--color-nav-hover);
+}
+@media screen and (min-width: 768px) {
+.root[data-v-3a041031] {
+    width: 25%;
+    margin-right: 20px;
+}
+.nav[data-v-3a041031] {
+    margin: 0;
+}
+}
+</style></head>
+  <body class="light-mode">
+    <div id="app" data-v-app=""><div data-v-b4e148ca="" id="root" class="root" style="--b4e148ca-headerHeight: 3em;"><header data-v-b4e148ca=""><div data-v-b4e148ca="" class="site-top"><div data-v-b4e148ca="" class="top-left"></div><div data-v-b4e148ca="" class="title"> SSE MARKET </div><div data-v-b4e148ca="" class="top-right"><div data-v-b4e148ca="" class="mode-select"><svg data-v-b4e148ca="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" width="1em" height="1em" viewBox="0 0 24 24" class="iconify iconify--material-symbols"><path fill="currentColor" d="M12 17q-2.075 0-3.537-1.463T7 12t1.463-3.537T12 7t3.538 1.463T17 12t-1.463 3.538T12 17m-7-4H1v-2h4zm18 0h-4v-2h4zM11 5V1h2v4zm0 18v-4h2v4zM6.4 7.75L3.875 5.325L5.3 3.85l2.4 2.5zm12.3 12.4l-2.425-2.525L17.6 16.25l2.525 2.425zM16.25 6.4l2.425-2.525L20.15 5.3l-2.5 2.4zM3.85 18.7l2.525-2.425L7.75 17.6l-2.425 2.525z"></path></svg></div></div></div><div data-v-b4e148ca="" class="site-header"><div data-v-b4e148ca="" class="links"><a data-v-b4e148ca="" href="http://localhost:5173/new/post" class=""><div data-v-b4e148ca="" class="icon" style="background-image: url(&quot;https://img.icons8.com/?size=100&amp;id=89802&amp;format=png&amp;color=000000&quot;); background-size: 90% 90%;"></div> 发帖 </a><a data-v-b4e148ca="" href="http://localhost:5173/new/partitions" class=""><div data-v-b4e148ca="" class="icon" style="background-image: url(&quot;https://sse-market-source-1320172928.cos.ap-guangzhou.myqcloud.com/src/images/uploads/1729566876258317319_icons8-top-wide-sidebar-followed-by-partition-at-bottom-24.png&quot;); background-size: 80% 80%; background-position: 0px 4px;"></div> 分区 </a><a data-v-b4e148ca="" href="http://localhost:5173/new/course" class=""><div data-v-b4e148ca="" class="icon" style="background-image: url(&quot;https://img.icons8.com/?size=100&amp;id=85872&amp;format=png&amp;color=000000&quot;); background-size: 95% 95%; background-position: 0px 3px;"></div> 课程专区 </a><a data-v-b4e148ca="" href="http://localhost:5173/new/feedback" class=""><div data-v-b4e148ca="" class="icon" style="background-image: url(&quot;https://img.icons8.com/?size=100&amp;id=85500&amp;format=png&amp;color=000000&quot;); background-position: 0px 3px;"></div> 反馈 </a></div><!--v-if--><div data-v-b4e148ca="" class="search"><input data-v-b4e148ca="" placeholder="在 当前分区 搜索..."><button data-v-b4e148ca=""><div data-v-b4e148ca="" class="icon" style="background-image: url(&quot;https://img.icons8.com/?size=100&amp;id=131&amp;format=png&amp;color=000000&quot;); background-size: 75% 75%; background-position: 0px 0px;"></div></button><!-- 改成图标 --></div><div data-v-b4e148ca="" class="account links"><a data-v-b4e148ca="" href="http://localhost:5173/new/save" class=""><div data-v-b4e148ca="" class="icon" style="background-image: url(&quot;https://img.icons8.com/?size=100&amp;id=85185&amp;format=png&amp;color=000000&quot;);"></div> 收藏 </a><a data-v-b4e148ca="" href="http://localhost:5173/new/history" class=""><div data-v-b4e148ca="" class="icon" style="background-image: url(&quot;https://img.icons8.com/?size=100&amp;id=83976&amp;format=png&amp;color=000000&quot;); background-size: 90% 90%;"></div> 发帖历史 </a><a data-v-b4e148ca="" href="http://localhost:5173/new/notice" class=""><div data-v-b4e148ca="" class="icon" style="background-image: url(&quot;https://img.icons8.com/?size=100&amp;id=32058&amp;format=png&amp;color=000000&quot;);"></div> 通知 <!--v-if--></a><a data-v-b4e148ca="" href="http://localhost:5173/new/chat" class=""> 私信 <!--v-if--></a><a data-v-b4e148ca="" href="http://localhost:5173/new/options" class="">秋</a></div><!--v-if--></div></header><main data-v-b4e148ca=""><!--v-if--><div data-v-b4e148ca="" class="content"><!--v-if--><!--v-if--><div data-v-b536383a="" class="shop-container"><!-- 加载中骨架屏 --><!-- 实际内容 --><div data-v-b536383a=""><!-- 功能区和轮播图块 --><div data-v-b536383a="" class="top-section"><!-- 轮播窗 --><div data-v-b536383a="" class="carousel-container"><div data-v-b536383a="" class="carousel"><div data-v-b536383a="" class="carousel-inner" style="transform: translateX(0%);"><div data-v-b536383a="" class="carousel-item"><img data-v-b536383a="" src="https://via.placeholder.com/1200x400?text=%E6%96%B0%E5%93%81%E4%B8%8A%E6%9E%B6" alt="轮播图"><div data-v-b536383a="" class="carousel-title">新品上架</div></div><div data-v-b536383a="" class="carousel-item"><img data-v-b536383a="" src="https://via.placeholder.com/1200x400?text=%E9%99%90%E6%97%B6%E4%BC%98%E6%83%A0" alt="轮播图"><div data-v-b536383a="" class="carousel-title">限时优惠</div></div><div data-v-b536383a="" class="carousel-item"><img data-v-b536383a="" src="https://via.placeholder.com/1200x400?text=%E7%83%AD%E9%97%A8%E6%8E%A8%E8%8D%90" alt="轮播图"><div data-v-b536383a="" class="carousel-title">热门推荐</div></div></div><button data-v-b536383a="" class="carousel-control prev">❮</button><button data-v-b536383a="" class="carousel-control next">❯</button><div data-v-b536383a="" class="carousel-indicators"><span data-v-b536383a="" class="indicator active"></span><span data-v-b536383a="" class="indicator"></span><span data-v-b536383a="" class="indicator"></span></div></div></div><!-- 筛选条件 --><div data-v-b536383a="" class="filter-container"><div data-v-b536383a="" class="filter-section"><h3 data-v-b536383a="">筛选条件</h3><div data-v-b536383a="" class="price-filter"><div data-v-b536383a="" class="price-label"><label data-v-b536383a="">价格区间：</label></div><div data-v-b536383a="" class="price-select-group"><select data-v-b536383a=""><option value="" data-v-b536383a="">请选择价格区间</option><option value="0-200" data-v-b536383a="">0-200元</option><option value="200-500" data-v-b536383a="">200-500元</option><option value="500-1000" data-v-b536383a="">500-1000元</option><option value="1000-2000" data-v-b536383a="">1000-2000元</option><option value="2000+" data-v-b536383a="">2000元以上</option></select></div></div><div data-v-b536383a="" class="filter-buttons"><button data-v-b536383a="">应用筛选</button><button data-v-b536383a="">重置筛选</button></div></div></div></div><!-- 商品展示块 --><div data-v-b536383a="" class="bottom-section"><!-- 商品列表标题 --><h2 data-v-b536383a="" class="product-list-title">热门商品</h2><!-- 商品列表 --><div data-v-b536383a="" class="product-list-wrapper"><div data-v-b536383a="" class="product-list"><div data-v-b7e60665="" data-v-b536383a="" class="product-card"><div data-v-b7e60665="" class="product-image"><img data-v-b7e60665="" src="https://via.placeholder.com/200x200?text=%E8%80%B3%E6%9C%BA" alt="高品质无线蓝牙耳机"></div><div data-v-b7e60665="" class="product-info"><h3 data-v-b7e60665="" class="product-name">高品质无线蓝牙耳机</h3><p data-v-b7e60665="" class="product-seller">卖家: 电子科技店</p><div data-v-b7e60665="" class="product-price"><span data-v-b7e60665="" class="current-price">¥299</span><span data-v-b7e60665="" class="original-price">¥399</span></div><p data-v-b7e60665="" class="product-description">这款高品质无线蓝牙耳机采用最新蓝牙5.0技术，音质清晰，续航长达30小时，防水防汗，适合运动和日常使...</p></div><button data-v-b7e60665="" class="add-to-cart">加入购物车</button></div><div data-v-b7e60665="" data-v-b536383a="" class="product-card"><div data-v-b7e60665="" class="product-image"><img data-v-b7e60665="" src="https://via.placeholder.com/200x200?text=%E6%89%8B%E8%A1%A8" alt="智能手表健康监测"></div><div data-v-b7e60665="" class="product-info"><h3 data-v-b7e60665="" class="product-name">智能手表健康监测</h3><p data-v-b7e60665="" class="product-seller">卖家: 智能生活馆</p><div data-v-b7e60665="" class="product-price"><span data-v-b7e60665="" class="current-price">¥599</span><span data-v-b7e60665="" class="original-price">¥799</span></div><p data-v-b7e60665="" class="product-description">多功能智能手表，支持心率监测、血氧检测、睡眠分析，50米防水，长达14天续航，兼容iOS和Andro...</p></div><button data-v-b7e60665="" class="add-to-cart">加入购物车</button></div><div data-v-b7e60665="" data-v-b536383a="" class="product-card"><div data-v-b7e60665="" class="product-image"><img data-v-b7e60665="" src="https://via.placeholder.com/200x200?text=%E5%85%85%E7%94%B5%E5%AE%9D" alt="超薄便携式充电宝"></div><div data-v-b7e60665="" class="product-info"><h3 data-v-b7e60665="" class="product-name">超薄便携式充电宝</h3><p data-v-b7e60665="" class="product-seller">卖家: 移动电源专卖</p><div data-v-b7e60665="" class="product-price"><span data-v-b7e60665="" class="current-price">¥129</span><span data-v-b7e60665="" class="original-price">¥169</span></div><p data-v-b7e60665="" class="product-description">20000mAh大容量超薄充电宝，支持快充，双USB输出，Type-C双向快充，兼容各种设备，安全可...</p></div><button data-v-b7e60665="" class="add-to-cart">加入购物车</button></div><div data-v-b7e60665="" data-v-b536383a="" class="product-card"><div data-v-b7e60665="" class="product-image"><img data-v-b7e60665="" src="https://via.placeholder.com/200x200?text=%E6%8A%95%E5%BD%B1%E4%BB%AA" alt="高清智能投影仪"></div><div data-v-b7e60665="" class="product-info"><h3 data-v-b7e60665="" class="product-name">高清智能投影仪</h3><p data-v-b7e60665="" class="product-seller">卖家: 影音设备商城</p><div data-v-b7e60665="" class="product-price"><span data-v-b7e60665="" class="current-price">¥2399</span><span data-v-b7e60665="" class="original-price">¥2999</span></div><p data-v-b7e60665="" class="product-description">1080P高清智能投影仪，支持无线投屏，自动对焦，自动梯形校正，内置音响，家庭影院必备。</p></div><button data-v-b7e60665="" class="add-to-cart">加入购物车</button></div><div data-v-b7e60665="" data-v-b536383a="" class="product-card"><div data-v-b7e60665="" class="product-image"><img data-v-b7e60665="" src="https://via.placeholder.com/200x200?text=%E8%BF%90%E5%8A%A8%E9%9E%8B" alt="时尚休闲运动鞋"></div><div data-v-b7e60665="" class="product-info"><h3 data-v-b7e60665="" class="product-name">时尚休闲运动鞋</h3><p data-v-b7e60665="" class="product-seller">卖家: 鞋类专卖店</p><div data-v-b7e60665="" class="product-price"><span data-v-b7e60665="" class="current-price">¥399</span><span data-v-b7e60665="" class="original-price">¥599</span></div><p data-v-b7e60665="" class="product-description">采用透气网面材质，轻便舒适，缓震效果好，适合日常穿着和运动，多色可选，百搭时尚。</p></div><button data-v-b7e60665="" class="add-to-cart">加入购物车</button></div><div data-v-b7e60665="" data-v-b536383a="" class="product-card"><div data-v-b7e60665="" class="product-image"><img data-v-b7e60665="" src="https://via.placeholder.com/200x200?text=T%E6%81%A4" alt="纯棉舒适T恤"></div><div data-v-b7e60665="" class="product-info"><h3 data-v-b7e60665="" class="product-name">纯棉舒适T恤</h3><p data-v-b7e60665="" class="product-seller">卖家: 服装品牌店</p><div data-v-b7e60665="" class="product-price"><span data-v-b7e60665="" class="current-price">¥99</span><span data-v-b7e60665="" class="original-price">¥149</span></div><p data-v-b7e60665="" class="product-description">100%纯棉面料，亲肤透气，简约设计，多色可选，适合各种场合穿着，易打理。</p></div><button data-v-b7e60665="" class="add-to-cart">加入购物车</button></div><div data-v-b7e60665="" data-v-b536383a="" class="product-card"><div data-v-b7e60665="" class="product-image"><img data-v-b7e60665="" src="https://via.placeholder.com/200x200?text=%E6%96%99%E7%90%86%E6%9C%BA" alt="多功能料理机"></div><div data-v-b7e60665="" class="product-info"><h3 data-v-b7e60665="" class="product-name">多功能料理机</h3><p data-v-b7e60665="" class="product-seller">卖家: 厨具专卖店</p><div data-v-b7e60665="" class="product-price"><span data-v-b7e60665="" class="current-price">¥899</span><span data-v-b7e60665="" class="original-price">¥1099</span></div><p data-v-b7e60665="" class="product-description">多功能料理机，搅拌、打蛋、切碎、研磨等多种功能，大功率电机，不锈钢刀头，易清洁，家用必备。</p></div><button data-v-b7e60665="" class="add-to-cart">加入购物车</button></div><div data-v-b7e60665="" data-v-b536383a="" class="product-card"><div data-v-b7e60665="" class="product-image"><img data-v-b7e60665="" src="https://via.placeholder.com/200x200?text=%E9%A4%90%E6%A1%8C" alt="北欧风格实木餐桌"></div><div data-v-b7e60665="" class="product-info"><h3 data-v-b7e60665="" class="product-name">北欧风格实木餐桌</h3><p data-v-b7e60665="" class="product-seller">卖家: 家居生活馆</p><div data-v-b7e60665="" class="product-price"><span data-v-b7e60665="" class="current-price">¥1299</span><span data-v-b7e60665="" class="original-price">¥1599</span></div><p data-v-b7e60665="" class="product-description">精选实木材质，坚固耐用，简约北欧风格设计，适合各种家居环境，尺寸可定制。</p></div><button data-v-b7e60665="" class="add-to-cart">加入购物车</button></div></div></div></div></div></div></div><div data-v-3a041031="" data-v-b4e148ca="" class="root nav-bar heat"><h2 data-v-3a041031="" id="heat"> 热榜 </h2><a data-v-3a041031="" href="http://localhost:5173/new/postdetail/2421" class="nav"><span data-v-3a041031="">程序设计没看时间截止了怎么办😭</span></a><a data-v-3a041031="" href="http://localhost:5173/new/postdetail/2418" class="nav"><span data-v-3a041031="">最硬核的游戏</span></a><a data-v-3a041031="" href="http://localhost:5173/new/postdetail/2417" class="nav"><span data-v-3a041031="">操作系统的不同核</span></a><a data-v-3a041031="" href="http://localhost:5173/new/postdetail/2422" class="nav"><span data-v-3a041031="">ai写前端是真好用啊</span></a><a data-v-3a041031="" href="http://localhost:5173/new/postdetail/2416" class="nav"><span data-v-3a041031="">邮箱通知功能正式上线啦！</span></a><a data-v-3a041031="" href="http://localhost:5173/new/postdetail/2419" class="nav"><span data-v-3a041031="">毕业出闲置冰箱</span></a><a data-v-3a041031="" href="http://localhost:5173/new/postdetail/2420" class="nav"><span data-v-3a041031="">收二手自行车</span></a><a data-v-3a041031="" href="http://localhost:5173/new/postdetail/2423" class="nav"><span data-v-3a041031="">运动耳机推荐</span></a><a data-v-3a041031="" href="http://localhost:5173/new/postdetail/2411" class="nav"><span data-v-3a041031="">舍友假期疯掉了怎么办</span></a><a data-v-3a041031="" href="http://localhost:5173/new/postdetail/2410" class="nav"><span data-v-3a041031="">DORO的实习日志#Week 4</span></a></div></main></div></div>
+    <script type="module" src="./SSE_files/main.js.下载"></script>
+  
+
+</body></html>
